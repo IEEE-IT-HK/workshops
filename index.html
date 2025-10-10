@@ -36,18 +36,21 @@
             font-size: 1.2em;
             color: #555;
         }
-        .workshop-details h2 {
+        .section-title {
             color: #00629b;
             border-bottom: 2px solid #00629b;
             padding-bottom: 10px;
             display: inline-block;
+            margin-bottom: 20px;
         }
         .detail-item {
             margin-bottom: 20px;
+            display: flex;
+            align-items: baseline;
         }
         .detail-item strong {
-            display: inline-block;
-            width: 120px;
+            flex-shrink: 0;
+            width: 100px;
             color: #333;
         }
         .register-button {
@@ -64,6 +67,53 @@
         .register-button:hover {
             background-color: #c43a12;
         }
+        
+        /* --- 新增：主讲嘉宾模块样式 --- */
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .speaker-card {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .speaker-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* 圆形头像 */
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+        }
+        .speaker-card h3 {
+            margin: 10px 0 5px 0;
+            color: #333;
+            font-size: 1.4em;
+        }
+        .speaker-card .speaker-title {
+            color: #555;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .speaker-card .speaker-bio {
+            font-size: 0.95em;
+            color: #666;
+            text-align: left;
+            line-height: 1.6;
+        }
+        /* --- 样式结束 --- */
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -81,30 +131,63 @@
             <p>一个关于前沿技术的分享与实践活动</p>
         </header>
 
-        <main class="workshop-details">
-            <h2>活动详情</h2>
-            <div class="detail-item">
-                <strong>主题:</strong> <span>GitHub Pages 静态网站快速搭建</span>
-            </div>
-            <div class="detail-item">
-                <strong>日期:</strong> <span>2023年11月15日</span>
-            </div>
-            <div class="detail-item">
-                <strong>时间:</strong> <span>下午 2:00 - 4:00</span>
-            </div>
-            <div class="detail-item">
-                <strong>地点:</strong> <span>线上会议 (链接将在报名后发送)</span>
-            </div>
-            <div class="detail-item">
-                <strong>主讲人:</strong> <span>你的名字</span>
-            </div>
+        <main>
+            <section id="details">
+                <h2 class="section-title">活动详情</h2>
+                <div class="detail-item">
+                    <strong>主题:</strong> <span>GitHub Pages 静态网站快速搭建</span>
+                </div>
+                <div class="detail-item">
+                    <strong>日期:</strong> <span>2023年11月15日</span>
+                </div>
+                <div class="detail-item">
+                    <strong>时间:</strong> <span>下午 2:00 - 4:00</span>
+                </div>
+                <div class="detail-item">
+                    <strong>地点:</strong> <span>线上会议 (链接将在报名后发送)</span>
+                </div>
+            </section>
 
-            <h2>活动内容</h2>
-            <p>本次 Workshop 将带你从零开始，学习如何使用 GitHub Pages 免费托管和发布你自己的静态网站。无论你是想创建个人主页、项目文档还是活动页面，这都是一项非常有用的技能！</p>
-            
-            <div style="text-align: center;">
-                <a href="#" class="register-button">立即报名</a>
-            </div>
+            <!-- --- 新增：主讲嘉宾模块 --- -->
+            <section id="speakers" style="margin-top: 40px;">
+                <h2 class="section-title">主讲嘉宾</h2>
+                <div class="speaker-grid">
+                    
+                    <!-- 嘉宾卡片 1 -->
+                    <div class="speaker-card">
+                        <!-- 
+                          提示: 
+                          1. 建议在你的 'workshops' 文件夹中创建一个 'images' 文件夹来存放头像图片。
+                          2. 然后将下面的 src 替换为 'images/speaker1.jpg' 这样的相对路径。
+                          3. 如果没有图片，这个SVG会显示一个灰色的占位头像。
+                        -->
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NjYyI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="嘉宾头像">
+                        <h3>你的名字</h3>
+                        <p class="speaker-title">GitHub Pages 布道师</p>
+                        <p class="speaker-bio">
+                            这里是嘉宾的简介或者他们报告内容的摘要。可以介绍他们的背景、研究方向，以及本次分享的主要看点。
+                        </p>
+                    </div>
+
+                    <!-- 嘉宾卡片 2 (示例) -->
+                    <div class="speaker-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NjYyI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="嘉宾头像">
+                        <h3>嘉宾二</h3>
+                        <p class="speaker-title">前端开发专家</p>
+                        <p class="speaker-bio">
+                            这是第二位嘉宾的简介。如果有多位嘉宾，只需复制上面的 "speaker-card" div 模块并修改内容即可。布局会自动适应。
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+            <!-- --- 模块结束 --- -->
+
+            <section id="register" style="margin-top: 40px; text-align: center;">
+                <h2 class="section-title">立即报名</h2>
+                <p>不要错过这个学习和交流的绝佳机会！</p>
+                <a href="#" class="register-button">点击这里报名</a>
+            </section>
         </main>
 
         <footer>
