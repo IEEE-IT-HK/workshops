@@ -1,198 +1,450 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEEE-IT-HK Workshop 宣传页</title>
-    <style>
-        /* 响应式和美化 CSS */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        header {
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            color: #00629b; /* IEEE Blue */
-            font-size: 2.8em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #555;
-        }
-        .section-title {
-            color: #00629b;
-            border-bottom: 2px solid #00629b;
-            padding-bottom: 10px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .detail-item {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: baseline;
-        }
-        .detail-item strong {
-            flex-shrink: 0;
-            width: 100px;
-            color: #333;
-        }
-        .register-button {
-            display: inline-block;
-            background-color: #e8491d;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .register-button:hover {
-            background-color: #c43a12;
-        }
-        
-        /* --- 新增：主讲嘉宾模块样式 --- */
-        .speaker-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .speaker-card {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .speaker-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .speaker-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%; /* 圆形头像 */
-            object-fit: cover;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            margin-bottom: 15px;
-        }
-        .speaker-card h3 {
-            margin: 10px 0 5px 0;
-            color: #333;
-            font-size: 1.4em;
-        }
-        .speaker-card .speaker-title {
-            color: #555;
-            font-size: 1em;
-            margin-bottom: 15px;
-        }
-        .speaker-card .speaker-bio {
-            font-size: 0.95em;
-            color: #666;
-            text-align: left;
-            line-height: 1.6;
-        }
-        /* --- 样式结束 --- */
+	<title>[Hong Kong Workshop on Coding and Information Theory]</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="[在此处填写您的工作坊简介]">
+	
+	<!-- 引入外部字体和图标库 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+	<style>
+		/* --- CSS Reset and Base Styles --- */
+		:root {
+			--accent-color: #00b8d4;
+			--dark-bg: #1d242a;
+			--light-text: #ffffff;
+			--medium-text: rgba(255, 255, 255, 0.5);
+			--border-color: rgba(255, 255, 255, 0.15);
+			--content-bg: #232b34;
+		}
+
+		html, body, div, span, h1, h2, h3, h4, p, a, ul, li, section, header, footer {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+
+		body {
+			font-family: 'Source Sans Pro', sans-serif;
+			background-color: var(--dark-bg);
+			color: var(--medium-text);
+			line-height: 1.75;
+			font-size: 16px;
+			font-weight: 300;
+		}
+
+		html {
+			box-sizing: border-box;
+		}
+
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+
+		h1, h2, h3, h4 {
+			color: var(--light-text);
+			font-weight: 600;
+			line-height: 1.5;
+			margin: 0 0 1em 0;
+		}
+
+		h1 { font-size: 2.5em; }
+		h2 { font-size: 1.75em; }
+		h3 { font-size: 1.25em; }
+		h4 { font-size: 1.1em; }
+
+		p {
+			margin: 0 0 2em 0;
+		}
+		
+		a {
+			color: var(--accent-color);
+			text-decoration: none;
+			transition: color 0.2s ease-in-out;
+		}
+
+		a:hover {
+			color: var(--light-text);
+		}
+
+		.button {
+			display: inline-block;
+			background-color: transparent;
+			border: 1px solid var(--border-color);
+			color: var(--light-text);
+			padding: 0.75em 1.5em;
+			border-radius: 4px;
+			font-weight: 400;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.button:hover {
+			background-color: var(--accent-color);
+			border-color: var(--accent-color);
+			color: var(--light-text) !important;
+		}
+
+		/* --- Main Layout --- */
+		#main {
+			width: 100%;
+			max-width: 100%;
+		}
+		
+		.container {
+			margin: 0 auto;
+			max-width: 1200px;
+			padding: 4em 2em;
+		}
+		
+		section {
+			border-top: 1px solid var(--border-color);
+		}
+		section:first-child {
+			border-top: 0;
+		}
+
+		/* --- Intro Section --- */
+		#intro {
+			min-height: 80vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 4em 2em;
+			/* 您可以替换成自己的背景图片 URL */
+			/* background-image: url('your-image-url.jpg'); */
+			background-image: linear-gradient(rgba(29, 36, 42, 0.7), rgba(29, 36, 42, 0.7)), 
+			                  radial-gradient(ellipse at center, #4c5866 0%, #1d242a 100%);
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed; /* Parallax effect */
+		}
+		
+		#intro .intro-content {
+			max-width: 800px;
+		}
+		
+		#intro h1 {
+			margin-bottom: 0.25em;
+		}
+		
+		#intro .date {
+			font-size: 1.25em;
+			color: var(--light-text);
+			margin-bottom: 2em;
+			font-weight: 300;
+		}
+		
+		#intro .intro-text {
+			margin-top: 3em;
+			text-align: left;
+			font-size: 1.1em;
+		}
+
+		/* --- Speakers / Organizers Grid --- */
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 2.5em;
+		}
+		
+		.grid-item {
+			text-align: center;
+		}
+		
+		.grid-item .image-placeholder {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			background-color: var(--content-bg);
+			margin: 0 auto 1.5em auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 2px solid var(--border-color);
+		}
+		
+		.grid-item .image-placeholder i {
+			font-size: 4em;
+			color: var(--medium-text);
+		}
+		
+		/* 如果您使用真实图片，请使用这个 class */
+		.grid-item .speaker-image {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin: 0 auto 1.5em auto;
+			border: 2px solid var(--border-color);
+		}
+		
+		.grid-item h3 {
+			margin-bottom: 0.25em;
+		}
+		
+		.grid-item p {
+			font-size: 0.9em;
+			margin-bottom: 0;
+		}
+
+		/* --- Schedule Section --- */
+		.schedule-item {
+			display: flex;
+			margin-bottom: 3em;
+			padding-bottom: 3em;
+			border-bottom: 1px solid var(--border-color);
+		}
+		
+		.schedule-item:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+		
+		.schedule-item .time {
+			flex-shrink: 0;
+			width: 120px;
+			font-weight: 600;
+			color: var(--light-text);
+			font-size: 1.1em;
+		}
+		
+		.schedule-item .details {
+			flex-grow: 1;
+		}
+		
+		.schedule-item .details h4 {
+			margin-bottom: 0.5em;
+		}
+		
+		.schedule-item .details .speaker-name {
+			font-style: italic;
+			margin-bottom: 1.5em;
+		}
+		
+		.schedule-item .details .content-label {
+			font-weight: 600;
+			color: var(--light-text);
+			margin-bottom: 0.5em;
+		}
+		
+		.schedule-item .details p {
+			margin-bottom: 1.5em;
+		}
+		
+		.schedule-item .details p:last-child {
+			margin-bottom: 0;
+		}
+
+		/* --- Venue Section --- */
+		#venue p {
+			margin-bottom: 1em;
+		}
+
+		/* --- Footer --- */
+		#footer {
+			padding: 2em;
+			text-align: center;
+			font-size: 0.9em;
+			background-color: var(--content-bg);
+		}
+
+		/* --- Responsive Design --- */
+		@media (max-width: 980px) {
+			.container {
+				padding: 3em 1.5em;
+			}
+		}
+		
+		@media (max-width: 736px) {
+			h1 { font-size: 2em; }
+			h2 { font-size: 1.5em; }
+			
+			#intro {
+				min-height: 60vh;
+			}
+			
+			.schedule-item {
+				flex-direction: column;
+			}
+			
+			.schedule-item .time {
+				width: auto;
+				margin-bottom: 1em;
+			}
+		}
+
+	</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>欢迎来到 IEEE-IT-HK Workshop</h1>
-            <p>一个关于前沿技术的分享与实践活动</p>
-        </header>
 
-        <main>
-            <section id="details">
-                <h2 class="section-title">活动详情</h2>
-                <div class="detail-item">
-                    <strong>主题:</strong> <span>GitHub Pages 静态网站快速搭建</span>
-                </div>
-                <div class="detail-item">
-                    <strong>日期:</strong> <span>2023年11月15日</span>
-                </div>
-                <div class="detail-item">
-                    <strong>时间:</strong> <span>下午 2:00 - 4:00</span>
-                </div>
-                <div class="detail-item">
-                    <strong>地点:</strong> <span>线上会议 (链接将在报名后发送)</span>
-                </div>
-            </section>
+	<!-- Main Content -->
+	<div id="main">
 
-            <!-- --- 新增：主讲嘉宾模块 --- -->
-            <section id="speakers" style="margin-top: 40px;">
-                <h2 class="section-title">主讲嘉宾</h2>
-                <div class="speaker-grid">
-                    
-                    <!-- 嘉宾卡片 1 -->
-                    <div class="speaker-card">
-                        <!-- 
-                          提示: 
-                          1. 建议在你的 'workshops' 文件夹中创建一个 'images' 文件夹来存放头像图片。
-                          2. 然后将下面的 src 替换为 'images/speaker1.jpg' 这样的相对路径。
-                          3. 如果没有图片，这个SVG会显示一个灰色的占位头像。
-                        -->
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NjYyI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="嘉宾头像">
-                        <h3>你的名字</h3>
-                        <p class="speaker-title">GitHub Pages 布道师</p>
-                        <p class="speaker-bio">
-                            这里是嘉宾的简介或者他们报告内容的摘要。可以介绍他们的背景、研究方向，以及本次分享的主要看点。
-                        </p>
-                    </div>
+		<!-- Intro Section -->
+		<section id="intro">
+			<div class="intro-content">
+				<h1>[在此处填写您的工作坊完整标题]</h1>
+				<p class="date">[在此处填写工作坊日期，例如：2025年11月3日]</p>
+				<a href="#registration" class="button">[注册按钮，可链接到注册页面]</a>
+				
+				<div class="intro-text">
+					<p>[在此处粘贴您的工作坊介绍段落1。这段文字将详细介绍工作坊的背景、目标和重要性。您可以根据需要添加多个 `<p>` 标签来分段。]</p>
+					<p>[在此处粘贴您的工作坊介绍段落2。例如，您可以讨论工作坊将涵盖的主题，以及它对参与者的价值。]</p>
+				</div>
+			</div>
+		</section>
 
-                    <!-- 嘉宾卡片 2 (示例) -->
-                    <div class="speaker-card">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NjYyI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="嘉宾头像">
-                        <h3>嘉宾二</h3>
-                        <p class="speaker-title">前端开发专家</p>
-                        <p class="speaker-bio">
-                            这是第二位嘉宾的简介。如果有多位嘉宾，只需复制上面的 "speaker-card" div 模块并修改内容即可。布局会自动适应。
-                        </p>
-                    </div>
+		<!-- Keynote Lecturers Section -->
+		<section id="speakers" class="container">
+			<h2>主讲嘉宾 (Keynote Lecturers)</h2>
+			<div class="grid-container">
+				
+				<!-- === 嘉宾 1 开始 === -->
+				<!-- 您可以复制这个 <article> 块来添加更多嘉宾 -->
+				<article class="grid-item">
+					<!-- 
+						方法一：使用占位符。
+						<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+						
+						方法二：使用真实图片。取消下方 img 标签的注释，并替换 src 链接。
+					-->
+					<!-- <img src="path/to/your/image1.jpg" alt="[嘉宾姓名]" class="speaker-image"> -->
+					<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+					
+					<h3>[嘉宾姓名]</h3>
+					<p>[嘉宾职位和单位]</p>
+				</article>
+				<!-- === 嘉宾 1 结束 === -->
 
-                </div>
-            </section>
-            <!-- --- 模块结束 --- -->
+				<!-- === 嘉宾 2 开始 === -->
+				<article class="grid-item">
+					<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+					<h3>[嘉宾姓名]</h3>
+					<p>[嘉宾职位和单位]</p>
+				</article>
+				<!-- === 嘉宾 2 结束 === -->
 
-            <section id="register" style="margin-top: 40px; text-align: center;">
-                <h2 class="section-title">立即报名</h2>
-                <p>不要错过这个学习和交流的绝佳机会！</p>
-                <a href="#" class="register-button">点击这里报名</a>
-            </section>
-        </main>
+				<!-- === 嘉宾 3 开始 === -->
+				<article class="grid-item">
+					<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+					<h3>[嘉宾姓名]</h3>
+					<p>[嘉宾职位和单位]</p>
+				</article>
+				<!-- === 嘉宾 3 结束 === -->
 
-        <footer>
-            <p>&copy; 2023 IEEE-IT-HK. All Rights Reserved.</p>
-        </footer>
-    </div>
+				<!-- ... 在此添加更多嘉宾 ... -->
+
+			</div>
+		</section>
+
+		<!-- Schedule Section -->
+		<section id="schedule" class="container">
+			<h2>日程安排 (Schedule)</h2>
+			
+			<!-- === 日程项 1 开始 === -->
+			<!-- 您可以复制这个 .schedule-item 块来添加更多日程 -->
+			<div class="schedule-item">
+				<div class="time">09:00 - 09:40</div>
+				<div class="details">
+					<h4>[报告标题]</h4>
+					<p class="speaker-name">[报告人姓名，单位]</p>
+					
+					<p class="content-label">摘要 (Abstract):</p>
+					<p>[在此处粘贴报告的摘要内容。]</p>
+					
+					<p class="content-label">个人简介 (Biography):</p>
+					<p>[在此处粘贴报告人的个人简介。]</p>
+				</div>
+			</div>
+			<!-- === 日程项 1 结束 === -->
+
+			<!-- === 日程项 2 (茶歇) 开始 === -->
+			<div class="schedule-item">
+				<div class="time">10:20 - 10:50</div>
+				<div class="details">
+					<h4>茶歇 (Coffee Break)</h4>
+					<p class="speaker-name">海报/演示环节</p>
+				</div>
+			</div>
+			<!-- === 日程项 2 结束 === -->
+			
+			<!-- === 日程项 3 开始 === -->
+			<div class="schedule-item">
+				<div class="time">10:50 - 11:30</div>
+				<div class="details">
+					<h4>[报告标题]</h4>
+					<p class="speaker-name">[报告人姓名，单位]</p>
+					
+					<p class="content-label">摘要 (Abstract):</p>
+					<p>[在此处粘贴报告的摘要内容。]</p>
+					
+					<p class="content-label">个人简介 (Biography):</p>
+					<p>[在此处粘贴报告人的个人简介。]</p>
+				</div>
+			</div>
+			<!-- === 日程项 3 结束 === -->
+
+			<!-- ... 在此添加更多日程 ... -->
+
+		</section>
+
+		<!-- Organizers Section -->
+		<section id="organizers" class="container">
+			<h2>组织者 (Organizers)</h2>
+			<div class="grid-container">
+				
+				<!-- === 组织者 1 开始 === -->
+				<article class="grid-item">
+					<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+					<h3>[组织者姓名]</h3>
+					<p>[职位和单位]</p>
+				</article>
+				<!-- === 组织者 1 结束 === -->
+
+				<!-- === 组织者 2 开始 === -->
+				<article class="grid-item">
+					<div class="image-placeholder"><i class="fa-solid fa-user"></i></div>
+					<h3>[组织者姓名]</h3>
+					<p>[职位和单位]</p>
+				</article>
+				<!-- === 组织者 2 结束 === -->
+
+				<!-- ... 在此添加更多组织者 ... -->
+				
+			</div>
+		</section>
+
+		<!-- Venue Section -->
+		<section id="venue" class="container">
+			<h2>会议地点 (Venue)</h2>
+			<p>[在此处填写关于会议地点的详细描述，例如建筑名称、交通方式等。]</p>
+			<p>
+				<strong>[建筑名称]</strong><br>
+				[详细地址第一行]<br>
+				[详细地址第二行]<br>
+				[城市, 邮编]
+			</p>
+			<!-- 您可以在这里嵌入一个地图，例如 Google Maps 的 iframe -->
+			<!-- <iframe src="your_google_map_embed_link" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<p>&copy; [您的工作坊名称或组织名称]。保留所有权利。</p>
+	</footer>
+
 </body>
 </html>
