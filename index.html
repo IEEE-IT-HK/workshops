@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<title>[Hong Kong Workshop on Coding and Information Theory]</title>
+	<title>[在此处填写您的工作坊标题]</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="[在此处填写您的工作坊简介]">
@@ -15,12 +15,15 @@
 	<style>
 		/* --- CSS Reset and Base Styles --- */
 		:root {
-			--accent-color: #00b8d4;
-			--dark-bg: #1d242a;
-			--light-text: #ffffff;
-			--medium-text: rgba(255, 255, 255, 0.5);
-			--border-color: rgba(255, 255, 255, 0.15);
-			--content-bg: #232b34;
+			/* --- 新的白蓝颜色主题 --- */
+			--accent-color: #007bff;      /* 专业蓝，用于链接和高亮 */
+			--accent-color-hover: #0056b3; /* 悬停时的深蓝色 */
+			--light-bg: #f8f9fa;          /* 极浅的灰色背景 */
+			--content-bg: #ffffff;        /* 内容区域的纯白背景 */
+			--dark-text: #212529;         /* 主要文本的深灰色 */
+			--medium-text: #6c757d;       /* 次要文本的中灰色 */
+			--border-color: #dee2e6;        /* 边框的浅灰色 */
+			--light-text: #ffffff;          /* 用于深色背景上的白色文字 (例如顶部图片) */
 		}
 
 		html, body, div, span, h1, h2, h3, h4, p, a, ul, li, section, header, footer {
@@ -34,11 +37,11 @@
 
 		body {
 			font-family: 'Source Sans Pro', sans-serif;
-			background-color: var(--dark-bg);
-			color: var(--medium-text);
+			background-color: var(--light-bg); /* 使用浅色背景 */
+			color: var(--medium-text);         /* 使用中灰色作为默认文字颜色 */
 			line-height: 1.75;
 			font-size: 16px;
-			font-weight: 300;
+			font-weight: 400; /* 调整默认字重为400，在浅色背景下更清晰 */
 		}
 
 		html {
@@ -50,7 +53,7 @@
 		}
 
 		h1, h2, h3, h4 {
-			color: var(--light-text);
+			color: var(--dark-text); /* 标题使用深色文字 */
 			font-weight: 600;
 			line-height: 1.5;
 			margin: 0 0 1em 0;
@@ -72,25 +75,29 @@
 		}
 
 		a:hover {
-			color: var(--light-text);
+			color: var(--accent-color-hover);
 		}
 
 		.button {
 			display: inline-block;
-			background-color: transparent;
-			border: 1px solid var(--border-color);
-			color: var(--light-text);
+			background-color: var(--accent-color); /* 按钮背景为蓝色 */
+			border: 1px solid var(--accent-color);
+			color: var(--light-text); /* 按钮文字为白色 */
 			padding: 0.75em 1.5em;
 			border-radius: 4px;
-			font-weight: 400;
+			font-weight: 600;
 			cursor: pointer;
 			transition: all 0.2s ease-in-out;
 		}
 
 		.button:hover {
-			background-color: var(--accent-color);
-			border-color: var(--accent-color);
+			background-color: var(--accent-color-hover); /* 悬停时变为深蓝色 */
+			border-color: var(--accent-color-hover);
 			color: var(--light-text) !important;
+		}
+		
+		.button i {
+			margin-right: 0.5em;
 		}
 
 		/* --- Main Layout --- */
@@ -103,6 +110,7 @@
 			margin: 0 auto;
 			max-width: 1200px;
 			padding: 4em 2em;
+			background-color: var(--content-bg); /* 每个内容区域都有白色背景 */
 		}
 		
 		section {
@@ -110,6 +118,8 @@
 		}
 		section:first-child {
 			border-top: 0;
+			padding-top: 0; /* Intro部分不需要顶部padding */
+			padding-bottom: 0; /* Intro部分不需要底部padding */
 		}
 
 		/* --- Intro Section --- */
@@ -120,20 +130,24 @@
 			justify-content: center;
 			text-align: center;
 			padding: 4em 2em;
-			/* 您可以替换成自己的背景图片 URL */
-			/* background-image: url('your-image-url.jpg'); */
-			background-image: linear-gradient(rgba(29, 36, 42, 0.7), rgba(29, 36, 42, 0.7)), 
-			                  radial-gradient(ellipse at center, #4c5866 0%, #1d242a 100%);
+			/* 
+			   背景图已更新：
+			   1. 使用您的 CUHK.png 图片作为背景。
+			   2. 在图片上叠加一个半透明的黑色渐变层，以确保白色文字始终清晰可见。
+			*/
+			background-image: linear-gradient(rgba(29, 36, 42, 0.6), rgba(29, 36, 42, 0.6)), url('images/CUHK.png');
 			background-size: cover;
 			background-position: center;
-			background-attachment: fixed; /* Parallax effect */
+			background-attachment: fixed;
+			color: var(--light-text); /* 确保此区域文字为白色 */
 		}
 		
 		#intro .intro-content {
 			max-width: 800px;
 		}
-		
+
 		#intro h1 {
+			color: var(--light-text); /* 标题强制为白色 */
 			margin-bottom: 0.25em;
 		}
 		
@@ -148,7 +162,19 @@
 			margin-top: 3em;
 			text-align: left;
 			font-size: 1.1em;
+			color: rgba(255, 255, 255, 0.85); /* 介绍文字使用稍透明的白色 */
 		}
+		
+		/* Intro部分的按钮样式微调 */
+		#intro .button {
+			background-color: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+		}
+		#intro .button:hover {
+			background-color: var(--accent-color);
+			border-color: var(--accent-color);
+		}
+
 
 		/* --- Speakers / Organizers Grid --- */
 		.grid-container {
@@ -165,7 +191,7 @@
 			width: 150px;
 			height: 150px;
 			border-radius: 50%;
-			background-color: var(--content-bg);
+			background-color: var(--light-bg); /* 使用浅灰色作为占位符背景 */
 			margin: 0 auto 1.5em auto;
 			display: flex;
 			align-items: center;
@@ -178,7 +204,6 @@
 			color: var(--medium-text);
 		}
 		
-		/* 如果您使用真实图片，请使用这个 class */
 		.grid-item .speaker-image {
 			width: 150px;
 			height: 150px;
@@ -195,6 +220,7 @@
 		.grid-item p {
 			font-size: 0.9em;
 			margin-bottom: 0;
+			color: var(--medium-text); /* 确保职位描述是中灰色 */
 		}
 
 		/* --- Schedule Section --- */
@@ -215,7 +241,7 @@
 			flex-shrink: 0;
 			width: 120px;
 			font-weight: 600;
-			color: var(--light-text);
+			color: var(--dark-text); /* 时间使用深色文字 */
 			font-size: 1.1em;
 		}
 		
@@ -234,7 +260,7 @@
 		
 		.schedule-item .details .content-label {
 			font-weight: 600;
-			color: var(--light-text);
+			color: var(--dark-text); /* 标签（摘要/简介）使用深色文字 */
 			margin-bottom: 0.5em;
 		}
 		
@@ -250,14 +276,48 @@
 		#venue p {
 			margin-bottom: 1em;
 		}
+		
+		/* Venue部分的PDF按钮，使用通用按钮样式，但确保颜色正确 */
+		#venue .button {
+			background-color: var(--accent-color);
+			border-color: var(--accent-color);
+			color: var(--light-text);
+		}
+		#venue .button:hover {
+			background-color: var(--accent-color-hover);
+			border-color: var(--accent-color-hover);
+		}
+
+		.venue-images {
+	          display: grid;
+	          grid-template-columns: 1fr 1fr;
+	          gap: 1.5em;
+	          margin-top: 2em;
+	          /* --- 新增的行 --- */
+	          max-width: 900px; /* 设置图片容器的最大宽度，您可以调整这个数值 */
+	          margin-left: auto; /* 配合下一行，让容器水平居中 */
+	          margin-right: auto; /* 配合上一行，让容器水平居中 */
+                }
+		.venue-image {
+			width: 100%;
+			height: auto;
+			border-radius: 4px;
+			object-fit: cover;
+			border: 1px solid var(--border-color); /* 为图片添加一个细边框 */
+		}
 
 		/* --- Footer --- */
 		#footer {
 			padding: 2em;
 			text-align: center;
 			font-size: 0.9em;
-			background-color: var(--content-bg);
+			background-color: var(--dark-text); /* 页脚使用深色背景形成对比 */
+			color: var(--light-bg); /* 页脚文字使用浅色 */
 		}
+		#footer p {
+		    margin-bottom: 0;
+		}
+
 
 		/* --- Responsive Design --- */
 		@media (max-width: 980px) {
@@ -272,6 +332,7 @@
 			
 			#intro {
 				min-height: 60vh;
+				background-attachment: scroll; /* 在移动端取消背景固定以提高性能 */
 			}
 			
 			.schedule-item {
@@ -281,6 +342,10 @@
 			.schedule-item .time {
 				width: auto;
 				margin-bottom: 1em;
+			}
+
+			.venue-images {
+				grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
 			}
 		}
 
