@@ -217,6 +217,19 @@
 			margin-bottom: 0;
 			color: var(--medium-text); /* 确保职位描述是中灰色 */
 		}
+		.keynote-container {
+   		 /* 1. 使用 Flexbox 布局，而不是 Grid */
+    			display: flex;
+
+   		 /* 2. 让两个元素作为一个整体在容器内水平居中 */
+    			justify-content: center;
+
+    		/* 3. (核心) 在两个元素之间创建巨大的间距，比如 100px */
+    			gap: 100px; /* 您可以根据视觉效果调整这个值，比如 80px 或 120px */
+
+   		 /* 4. (可选但推荐) 确保覆盖掉可能存在的 Grid 布局属性 */
+    			grid-template-columns: none; 
+		}
 
 		/* --- Schedule Section (已更新为新布局) --- */
 		#schedule {
@@ -249,6 +262,7 @@
 			color: var(--dark-text);
 			margin-bottom: 1em;
 		}
+
 
 		.speaker-avatar {
 			width: 100px;
@@ -417,7 +431,40 @@
 					<p>The workshop is hosted by the Department of Information Engineering at The Chinese University of Hong Kong, and the IEEE Information Theory Society Hong Kong Chapter.
 </p>
 				</div>
-			</section>
+		</section>
+
+
+
+		<!-- Keynote Lecturers Section -->
+		<section id="speakers" class="container">
+    <h2>Keynote speakers</h2>
+    <!-- 改动在这里：给这个 div 同时加上了 keynote-container 类 -->
+    <div class="grid-container keynote-container">
+        
+        <!-- === 嘉宾 1 开始 === -->
+        <article class="grid-item">
+            <img src="images/abbas.jpg" alt="Abbas El Gamal" class="speaker-image"> 
+            <h3>Abbas El Gamal</h3>
+            <p>Hitachi America Professor</p>
+            <p>Department of Electrical Engineering,Stanford University</p>
+        </article>
+        <!-- === 嘉宾 1 结束 === -->
+
+        <!-- === 嘉宾 2 开始 === -->
+        <article class="grid-item">
+            <img src="images/Rudiger.jpg" alt="Rudiger" class="speaker-image"> 
+            <h3>Rüdiger Urbanke</h3>
+            <p>Professor</p>
+            <p>School of Computer and Communication Sciences, EPFL</p>
+        </article>
+        <!-- === 嘉宾 2 结束 === -->
+
+    </div>
+</section>
+
+
+
+
 
 		<!-- Keynote Lecturers Section -->
 		<section id="speakers" class="container">
@@ -427,7 +474,7 @@
 				<!-- === 嘉宾 1 开始 === -->
 				<!-- 您可以复制这个 <article> 块来添加更多嘉宾 -->
 				<article class="grid-item">
-					 <img src="images/abbas.jpg" alt="Abbas El Gamal" class="speaker-image"> 
+					<img src="images/abbas.jpg" alt="Abbas El Gamal" class="speaker-image"> 
 					<h3>Abbas El Gamal</h3>
                                         <p>Hitachi America Professor</p>
 					<p>Department of Electrical Engineering,Stanford University</p>
@@ -449,7 +496,7 @@
 
 	<!-- Keynote Lecturers Section -->
 		<section id="speakers" class="container">
-			<h2>Invited Speakers ((in alphabetical order of surnames) </h2>
+			<h2>Invited Speakers (in alphabetical order of surnames) </h2>
 			<div class="grid-container">
 
 				<!-- === 嘉宾 2 开始 === -->
