@@ -107,10 +107,11 @@
 		}
 		
 		.container {
-			max-width: 960px; /* 稍微加宽以容纳新的日程布局 */
+			max-width: 800px;
             		margin-left: auto;
            		margin-right: auto;
-            		padding: 4em 20px;
+            		padding-left: 20px;
+            		padding-right: 20px;
 		}
 		
 		section {
@@ -130,6 +131,11 @@
 			justify-content: center;
 			text-align: center;
 			padding: 4em 2em;
+			/* 
+			   背景图已更新：
+			   1. 使用您的 CUHK.png 图片作为背景。
+			   2. 在图片上叠加一个半透明的黑色渐变层，以确保白色文字始终清晰可见。
+			*/
 			background-image: linear-gradient(rgba(29, 36, 42, 0.6), rgba(29, 36, 42, 0.6)), url('images/CUHK.png');
 			background-size: cover;
 			background-position: center;
@@ -218,101 +224,72 @@
 			color: var(--medium-text); /* 确保职位描述是中灰色 */
 		}
 
-		/* --- Schedule Section (已更新为新布局) --- */
-		#schedule {
-			background-color: var(--light-bg); /* 使用浅色背景 */
-		}
-		
+		/* --- Schedule Section --- */
+
+
+ 		.schedule-wrapper {
+            		background-color: #f7f7f7; /* 浅灰色背景 */
+            		padding-top: 2em;
+            		padding-bottom: 2em;
+        	}
+
 		.schedule-item {
-			display: flex;
-			gap: 2em; /* 两栏之间的间距 */
-			padding: 2em 0;
-			border-bottom: 1px solid var(--border-color);
+    		/* 增加左右各 20px 的内边距 */
+    			padding-left: 20px;
+    			padding-right: 20px;
+    
+    		/* 使用 box-sizing 是一个好习惯，确保内边距不会增加元素的总宽度 */
+    			box-sizing: border-box; 
 		}
 		.schedule-item:last-child {
-			border-bottom: none;
+			margin-bottom: 0;
 			padding-bottom: 0;
+			border-bottom: 0;
 		}
-
-		/* 左侧栏：时间、头像、姓名 */
-		.schedule-left {
-			flex: 0 0 180px; /* 不拉伸，不收缩，基础宽度为 180px */
-			display: flex;
-			flex-direction: column;
-			align-items: center; /* 内部元素居中对齐 */
-			text-align: center;
-		}
-
+		
 		.schedule-item .time {
-			font-size: 1.75em; /* 突出时间 */
-			font-weight: 700;
-			color: var(--dark-text);
-			margin-bottom: 1em;
-		}
-
-		.speaker-avatar {
-			width: 100px;
-			height: 100px;
-			border-radius: 50%; /* 圆形头像 */
-			object-fit: cover; /* 保证图片不变形 */
-			background-color: #ccc; /* 图片加载失败时的背景色 */
-			margin-bottom: 1em;
-			border: 3px solid var(--content-bg);
-			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-		}
-
-		.speaker-name {
+			flex-shrink: 0;
+			width: 120px;
 			font-weight: 600;
+			color: var(--dark-text); /* 时间使用深色文字 */
 			font-size: 1.1em;
-			margin: 0;
-			color: var(--dark-text);
 		}
 		
-		.speaker-affiliation {
-			font-size: 0.9em;
-			color: var(--medium-text);
-		}
-
-		/* 右侧栏：标题、简介、摘要 */
-		.schedule-right {
-			flex: 1 1 auto; /* 自动填充剩余空间 */
-		}
-
-		.schedule-right h4 {
-			font-size: 1.5em;
-			margin-top: 0;
-			margin-bottom: 0.75em;
-		}
-
-		.speaker-bio, .abstract-content {
-			font-size: 1em;
-			color: var(--medium-text);
-			text-align: justify;
-			margin: 0 0 1.5em 0;
+		.schedule-item .details {
+			flex-grow: 1;
 		}
 		
-		.abstract {
-			margin-top: 1.5em;
-			padding: 1em 1.5em;
-			border-left: 3px solid var(--accent-color); /* 用主题色竖线突出摘要 */
-			background-color: var(--content-bg); /* 白色背景 */
-			border-radius: 4px;
+		.schedule-item .details h4 {
+			margin-bottom: 0.5em;
 		}
 		
-		.abstract h5 {
-			margin: 0 0 0.5em 0;
-			font-size: 1.1em;
-			color: var(--accent-color);
+		.schedule-item .details .speaker-name {
+			font-weight: 600; /* 字体加粗 (600是 semi-bold) */
+			color: #333;       /* 可以设置一个比简介更深的颜色 */
+			margin-bottom: 0.5em; /* 增加与下方简介的间距 */
 		}
-		.abstract .abstract-content {
-			margin: 0;
-			font-size: 0.95em;
+                .schedule-item .speaker-bio {
+			font-style: italic;   /* 设置为斜体 */
+			font-size: 0.9em;      /* 字号设置为父元素的90%，让它看起来小一点 */
+			color: #666;          /* 使用灰色，与姓名的深色形成对比 */
+			margin-top: 0;         /* 移除可能存在的顶部边距，让它紧随姓名 */
+		}
+		
+		.schedule-item .details .content-label {
+			font-weight: 600;
+			color: var(--dark-text); /* 标签（摘要/简介）使用深色文字 */
+			margin-bottom: 0.5em;
+		}
+		
+		.schedule-item .details p {
+			margin-bottom: 1.5em;
+		}
+		
+		.schedule-item .details p:last-child {
+			margin-bottom: 0;
 		}
 
 		/* --- Venue Section --- */
-		#venue {
-			background-color: var(--content-bg);
-		}
 		#venue p {
 			margin-bottom: 1em;
 		}
@@ -333,9 +310,10 @@
 	          grid-template-columns: 1fr 1fr;
 	          gap: 1.5em;
 	          margin-top: 2em;
-	          max-width: 900px; 
-	          margin-left: auto; 
-	          margin-right: auto;
+	          /* --- 新增的行 --- */
+	          max-width: 900px; /* 设置图片容器的最大宽度，您可以调整这个数值 */
+	          margin-left: auto; /* 配合下一行，让容器水平居中 */
+	          margin-right: auto; /* 配合上一行，让容器水平居中 */
                 }
 		.venue-image {
 			width: 100%;
@@ -352,7 +330,6 @@
 			font-size: 0.9em;
 			background-color: var(--dark-text); /* 页脚使用深色背景形成对比 */
 			color: var(--light-bg); /* 页脚文字使用浅色 */
-			border-top: 1px solid var(--border-color);
 		}
 		#footer p {
 		    margin-bottom: 0;
@@ -366,7 +343,7 @@
 			}
 		}
 		
-		@media (max-width: 768px) { /* 将断点从 736px 改为 768px，更通用 */
+		@media (max-width: 736px) {
 			h1 { font-size: 2em; }
 			h2 { font-size: 1.5em; }
 			
@@ -375,18 +352,15 @@
 				background-attachment: scroll; /* 在移动端取消背景固定以提高性能 */
 			}
 			
-			/* --- 新增的日程响应式样式 --- */
 			.schedule-item {
-				flex-direction: column; /* 关键：将主轴方向改为垂直 */
-				gap: 1.5em; /* 调整堆叠时的间距 */
+				flex-direction: column;
+			}
+			
+			.schedule-item .time {
+				width: auto;
+				margin-bottom: 1em;
 			}
 
-			.schedule-left {
-				flex-basis: auto; /* 重置基础宽度 */
-				margin-bottom: 1em; /* 在左侧区域下方增加一些间距 */
-			}
-			/* --- 结束新增 --- */
-			
 			.venue-images {
 				grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
 			}
@@ -495,71 +469,6 @@
 
 			</div>
 		</section>
-
-
-
-			<!-- Schedule (这部分已完全更新) -->
-			<section id="schedule">
-				<div class="container">
-					<h2>Schedule</h2>
-					
-					<!-- === 日程项 1 开始 === -->
-					<div class="schedule-item">
-						
-						<!-- 左侧栏: 时间, 头像, 姓名 -->
-						<div class="schedule-left">
-							<div class="time">09:00 - 09:30</div>
-							<!-- 
-							  使用 SVG Data URI 生成的占位符头像。
-							  您可以将其替换为真实图片: <img class="speaker-avatar" src="images/abbas-el-gamal.jpg" alt="Abbas El Gamal">
-							-->
-							<img class="speaker-avatar" 
-								 src="images/abbas" 
-								 alt="Speaker Avatar">
-							<p class="speaker-name">Abbas El Gamal</p>
-							<p class="speaker-affiliation">Stanford University</p>
-						</div>
-
-						<!-- 右侧栏: 标题, 简介, 摘要 -->
-						<div class="schedule-right">
-							<h4>Title: Yao meets Shannon</h4>
-							
-							<p class="speaker-bio"><strong>Bio:</strong> Abbas El Gamal is the Hitachi America Professor in the School of Engineering and Senior Fellow at the Precourt Institute for Energy at Stanford University. He received his M.S. in Statistics and Ph.D. in Electrical Engineering both from Stanford University in 1977 and 1978, respectively. From 1978 to 1980, he was an Assistant Professor of Electrical Engineering at USC. He has been on the faculty of the Department of Electrical Engineering at Stanford University since 1981. From 2003 to 2012, he was Director of the Information Systems Laboratory at Stanford University. From 2012-2017 he was Chair of the Department of Electrical Engineering at Stanford University. His research contributions have been in network information theory, FPGAs, digital imaging devices and systems, and smart grid modeling and control. He has authored or coauthored over 230 papers and holds over 35 patents in these areas. He is coauthor of the book Network Information Theory (Cambridge Press 2011). He is a member of the US National Academy of Engineering and a Life Fellow of the IEEE. He received several honors and awards for his research contributions, including the 2016 IEEE Richard Hamming Medal and the 2012 Claude E. Shannon Award. He served on the Board of Governors of the Information Theory Society from 2009 to 2016 and was President in 2014. He cofounded and served on the board of directors and technical advisory boards of several Silicon Vally semiconductor, EDA, and biotech companies.</p>
-
-							<!-- 新增的摘要部分 -->
-							<div class="abstract">
-								<h5>Abstract</h5>
-								<p class="abstract-content">This is a placeholder for the presentation abstract. The abstract provides a concise summary of the talk, including its purpose, methods, results, and conclusions. It helps attendees decide if the session is relevant to their interests.</p>
-							</div>
-						</div>
-
-					</div>
-					<!-- === 日程项 1 结束 === -->
-
-					<!-- 您可以在这里添加更多 <div class="schedule-item">...</div> 来创建更多日程 -->
-					<!-- 示例: 日程项 2 (占位符) -->
-					<div class="schedule-item">
-						<div class="schedule-left">
-							<div class="time">09:30 - 10:00</div>
-							<img class="speaker-avatar" 
-								 src="src="images/farzan" 
-								 alt="Speaker Avatar">
-							<p class="speaker-name">[Speaker Name]</p>
-							<p class="speaker-affiliation">[Affiliation]</p>
-						</div>
-						<div class="schedule-right">
-							<h4>Title: [Presentation Title]</h4>
-							<p class="speaker-bio"><strong>Bio:</strong> [Speaker's biography goes here...]</p>
-							<div class="abstract">
-								<h5>Abstract</h5>
-								<p class="abstract-content">[Presentation abstract goes here...]</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
 
 
 		<!-- Schedule Section -->
