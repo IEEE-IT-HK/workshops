@@ -254,8 +254,15 @@
 		}
 		
 		.schedule-item .details .speaker-name {
-			font-style: italic;
-			margin-bottom: 1.5em;
+			font-weight: 600; /* 字体加粗 (600是 semi-bold) */
+			color: #333;       /* 可以设置一个比简介更深的颜色 */
+			margin-bottom: 0.5em; /* 增加与下方简介的间距 */
+		}
+                .schedule-item .speaker-bio {
+			font-style: italic;   /* 设置为斜体 */
+			font-size: 0.9em;      /* 字号设置为父元素的90%，让它看起来小一点 */
+			color: #666;          /* 使用灰色，与姓名的深色形成对比 */
+			margin-top: 0;         /* 移除可能存在的顶部边距，让它紧随姓名 */
 		}
 		
 		.schedule-item .details .content-label {
@@ -452,11 +459,9 @@
 			<div class="schedule-item">
 				<div class="time">09:00 - 09:40</div>
 				<div class="details">
-					<h4>Yao meets Shannon</h4>
-					<p class="speaker-name">[Abbas El Gamal]</p>
-                                        <p class="speaker-name">Abbas El Gamal is the Hitachi America Professor in the School of Engineering and Senior Fellow at the Precourt Institute for Energy at Stanford University. He received his M.S. in Statistics and Ph.D. in Electrical Engineering both from Stanford University in 1977 and 1978, respectively. From 1978 to 1980, he was an Assistant Professor of Electrical Engineering at USC. He has been on the faculty of the Department of Electrical Engineering at Stanford University since 1981. From 2003 to 2012, he was Director of the Information Systems Laboratory at Stanford University. From 2012-2017 he was Chair of the Department of Electrical Engineering at Stanford University. His research contributions have been in network information theory, FPGAs, digital imaging devices and systems, and smart grid modeling and control. He has authored or coauthored over 230 papers and holds over 35 patents in these areas. He is coauthor of the book Network Information Theory (Cambridge Press 2011). He is a member of the US National Academy of Engineering and a Life Fellow of the IEEE. He received several honors and awards for his research contributions, including the 2016 IEEE Richard Hamming Medal and the 2012 Claude E. Shannon Award. He served on the Board of Governors of the Information Theory Society from 2009 to 2016 and was President in 2014. He cofounded and served on the board of directors and technical advisory boards of several Silicon Vally semiconductor, EDA, and biotech companies. 
-</p>
-					
+				<h4>Title: Yao meets Shannon</h4>
+       				<p class="speaker-name">Abbas El Gamal</p>
+                		<p class="speaker-bio">Abbas El Gamal is the Hitachi America Professor in the School of Engineering and Senior Fellow at the Precourt Institute for Energy at Stanford University. He received his M.S. in Statistics and Ph.D. in Electrical Engineering both from Stanford University in 1977 and 1978, respectively. From 1978 to 1980, he was an Assistant Professor of Electrical Engineering at USC. He has been on the faculty of the Department of Electrical Engineering at Stanford University since 1981. From 2003 to 2012, he was Director of the Information Systems Laboratory at Stanford University. From 2012-2017 he was Chair of the Department of Electrical Engineering at Stanford University. His research contributions have been in network information theory, FPGAs, digital imaging devices and systems, and smart grid modeling and control. He has authored or coauthored over 230 papers and holds over 35 patents in these areas. He is coauthor of the book Network Information Theory (Cambridge Press 2011). He is a member of the US National Academy of Engineering and a Life Fellow of the IEEE. He received several honors and awards for his research contributions, including the 2016 IEEE Richard Hamming Medal and the 2012 Claude E. Shannon Award. He served on the Board of Governors of the Information Theory Society from 2009 to 2016 and was President in 2014. He cofounded and served on the board of directors and technical advisory boards of several Silicon Vally semiconductor, EDA, and biotech companies. </p>					
 			</div>
 			</div>
 			<!-- === 日程项 1 结束 === -->
