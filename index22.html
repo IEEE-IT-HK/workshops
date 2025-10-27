@@ -107,11 +107,10 @@
 		}
 		
 		.container {
-			max-width: 800px;
-            		margin-left: auto;
-           		margin-right: auto;
-            		padding-left: 20px;
-            		padding-right: 20px;
+			margin: 0 auto;
+			max-width: 1200px;
+			padding: 4em 2em;
+			background-color: var(--content-bg); /* 每个内容区域都有白色背景 */
 		}
 		
 		section {
@@ -225,14 +224,6 @@
 		}
 
 		/* --- Schedule Section --- */
-
-
- 		.schedule-wrapper {
-            		background-color: #f7f7f7; /* 浅灰色背景 */
-            		padding-top: 2em;
-            		padding-bottom: 2em;
-        	}
-
 		.schedule-item {
     		/* 增加左右各 20px 的内边距 */
     			padding-left: 20px;
@@ -472,14 +463,8 @@
 
 
 		<!-- Schedule Section -->
-		<section id="schedule">
-
-    		<!-- 2. 新增一个 schedule-wrapper，它将负责背景色 -->
-    		<div class="schedule-wrapper">
-
-       		 <!-- 3. 把原来的 container 移到 wrapper 内部 -->
-        		<div class="container">
-           		 <h2>Schedule</h2>
+		<section id="schedule" class="container">
+			<h2>Schedule </h2>
 			<!-- === 日程项 1 开始 === -->
 			<div class="schedule-item">
 				<div class="time">09:00 - 09:30</div>
@@ -578,8 +563,6 @@ He worked in Center for Advanced Intelligence Project, RIKEN as a Visiting Scien
 
 			<!-- === 日程项 8 结束 === -->
 
-	</div>
-</div>
 </section>
 
 		<!-- Organizers Section -->
