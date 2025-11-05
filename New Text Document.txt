@@ -1,0 +1,8 @@
+# 添加所有更改（包括新的 html 和新的 images 文件夹）
+git add .
+
+# 提交更改
+git commit -m "添加主讲嘉宾介绍模块"
+
+# 推送到 GitHub
+git push origin main
